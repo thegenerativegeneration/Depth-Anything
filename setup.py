@@ -1,13 +1,10 @@
 from setuptools import setup, find_packages
 
+
 # Read the contents of the README file
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-# Load requirements from requirements.txt
-with open("requirements.txt", "r", encoding="utf-8") as fh:
-    requirements = fh.readlines()
-    requirements = [req.strip() for req in requirements]
 
 setup(
     name="depth-anything",
@@ -25,6 +22,12 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
-    install_requires=requirements,
+    install_requires=[
+        "opencv-python-headless==4.8.0.74",
+        "torch",
+        "torchvision",
+        "matplotlib",
+        "huggingface_hub",
+    ]
     include_package_data=True,
 )
